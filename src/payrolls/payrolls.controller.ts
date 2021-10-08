@@ -1,4 +1,4 @@
-import { BadRequestException, Controller, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { BadRequestException, Controller, Get, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { isEmpty } from 'lodash';
 import { PayrollsService } from './payrolls.service';
@@ -25,8 +25,11 @@ export class PayrollsController {
       throw new BadRequestException('Empty file');
     }
 
-    this.payrollsService.handleUploadFile(name, buffer);
+    return this.payrollsService.handleUploadFile(name, buffer);
+  }
 
-    return true;
+  @Get('reports')
+  async getReports() {
+    return this.payrollsService.getReports();
   }
 }
