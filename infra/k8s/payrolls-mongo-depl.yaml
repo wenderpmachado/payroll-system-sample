@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payrolls-mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payrolls-mongo
+  template:
+    metadata:
+      labels:
+        app: payrolls-mongo
+    spec:
+      containers:
+        - name: payrolls-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payrolls-mongo-srv
+spec:
+  selector:
+    app: payrolls-mongo
+  ports:
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

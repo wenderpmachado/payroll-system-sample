@@ -2,7 +2,7 @@
   "name": "payroll-system-sample",
   "version": "0.1.0",
   "description": "",
-  "author": "",
+  "author": "Wender Machado <wenderpmachado@gmail.com>",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -22,15 +22,21 @@
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
+    "@nestjs/config": "^1.0.2",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
+    "@nestjs/typeorm": "^8.0.2",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "csv-parse": "^4.16.3",
+    "date-fns": "^2.25.0",
     "lodash": "^4.17.21",
+    "mongodb": "3.7.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "typeorm": "^0.2.38",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",
@@ -72,7 +78,8 @@
     "collectCoverageFrom": [
       "**/*.(t|j)s",
       "!**/*.module.ts",
-      "!**/main.ts"
+      "!**/main.ts",
+      "!**/database/*.*"
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
