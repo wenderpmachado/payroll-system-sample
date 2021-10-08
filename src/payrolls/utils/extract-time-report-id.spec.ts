@@ -1,22 +1,21 @@
 import * as faker from 'faker';
+import { timeReporNameMock } from '../../../test/__mocks/time-report-name.mock';
 import { extractTimeReportId } from './extract-time-report-id';
 
 describe('extractTimeReportId', () => {
   it('should extract the id number (name with extension)', () => {
-    const idNumber = faker.datatype.number();
-    const reportName = `time-report-${idNumber}.csv`;
+    const { name: reportName, timeReportId } = timeReporNameMock();
 
     const result = extractTimeReportId(reportName);
 
-    expect(result).toBe(idNumber);
+    expect(result).toBe(timeReportId);
   });
 
   it('should extract the id number (name without extension)', () => {
-    const idNumber = faker.datatype.number();
-    const reportName = `time-report-${idNumber}`;
+    const { name: reportName, timeReportId } = timeReporNameMock(false);
 
     const result = extractTimeReportId(reportName);
 
-    expect(result).toBe(idNumber);
+    expect(result).toBe(timeReportId);
   });
 });
