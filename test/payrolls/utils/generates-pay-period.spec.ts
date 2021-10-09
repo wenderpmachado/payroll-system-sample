@@ -1,5 +1,5 @@
-import { PAY_PERIOD_OPTIONS } from "../../interfaces/time-report-data";
-import { generatesPayPeriod } from "./generates-pay-period";
+import { generatesPayPeriod } from "../../../src/payrolls/utils/generates-pay-period";
+import { PAY_PERIOD_OPTIONS } from "../../../src/interfaces/time-report-data";
 
 describe('generatesPayPeriod', () => {
   it('should generates an object from first half pay period', () => {

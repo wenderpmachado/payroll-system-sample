@@ -1,4 +1,4 @@
-import { getMonth } from './get-month';
+import { getMonth } from './../../src/helpers/get-month';
 
 describe('getMonth', () => {
   it('should get month, in string format', async () => {

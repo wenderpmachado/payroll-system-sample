@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { IPayrollReport } from '../interfaces/time-report-data';
-import { payrollsServiceMock } from '../../test/__mocks/payrolls-service.mock';
-import { timeReporNameMock } from '../../test/__mocks/time-report-name.mock';
-import { timeReportBufferMock } from '../../test/__mocks/time-report.mock';
-import { PayrollsController } from './payrolls.controller';
-import { PayrollsService } from './payrolls.service';
+import { IPayrollReport } from '../../src/interfaces/time-report-data';
+import { payrollsServiceMock } from '../__mocks/payrolls-service.mock';
+import { timeReporNameMock } from '../__mocks/time-report-name.mock';
+import { timeReportBufferMock } from '../__mocks/time-report.mock';
+import { PayrollsController } from '../../src/payrolls/payrolls.controller';
+import { PayrollsService } from '../../src/payrolls/payrolls.service';
 
 describe('PayrollsController', () => {
   let controller: PayrollsController;

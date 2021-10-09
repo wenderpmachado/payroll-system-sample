@@ -1,5 +1,5 @@
+import { parseTimeReportBufferToArray } from "../../../src/payrolls/utils/parse-time-report-buffer-to-array";
 import { timeReportBufferMock } from "../../../test/__mocks/time-report.mock";
-import { parseTimeReportBufferToArray } from "./parse-time-report-buffer-to-array";
 
 describe('parseTimeReportBufferToArray', () => {
   it('should extract the data from a time report row', async () => {

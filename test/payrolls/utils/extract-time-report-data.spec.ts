@@ -1,5 +1,5 @@
-import { extractTimeReportDataFromString, extractTimeReportDataFromArray } from './extract-time-report-data';
-import { timeReportRowMock } from '../../../test/__mocks/time-report.mock';
+import { extractTimeReportDataFromString, extractTimeReportDataFromArray } from '../../../src/payrolls/utils/extract-time-report-data';
+import { timeReportRowMock } from '../../__mocks/time-report.mock';
 
 describe('extractTimeReportData', () => {
   it('should extract the data from a time report row', () => {
