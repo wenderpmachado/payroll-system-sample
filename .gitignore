@@ -36,3 +36,5 @@ lerna-debug.log*
 
 INSTRUCTIONS.md
 .env
+database
+skaffold-windows-amd64.exe

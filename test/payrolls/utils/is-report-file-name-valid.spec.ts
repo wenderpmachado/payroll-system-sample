@@ -1,5 +1,5 @@
 import * as faker from 'faker';
-import { isReportFileNameValid } from './is-report-file-name-valid';
+import { isReportFileNameValid } from '../../../src/payrolls/utils/is-report-file-name-valid';
 
 describe('isReportFileNameValid', () => {
   it('should return true if pass valid name', () => {

@@ -1,6 +1,5 @@
-import * as faker from 'faker';
 import { timeReporNameMock } from '../../../test/__mocks/time-report-name.mock';
-import { extractTimeReportId } from './extract-time-report-id';
+import { extractTimeReportId } from '../../../src/payrolls/utils/extract-time-report-id';
 
 describe('extractTimeReportId', () => {
   it('should extract the id number (name with extension)', () => {

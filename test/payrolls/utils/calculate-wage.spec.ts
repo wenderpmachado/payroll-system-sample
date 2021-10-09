@@ -1,5 +1,5 @@
-import { JOB_GROUPS_OPTIONS } from "../../interfaces/time-report-data";
-import { calculateWage } from "./calculate-wage";
+import { calculateWage } from "../../../src/payrolls/utils/calculate-wage";
+import { JOB_GROUPS_OPTIONS } from "../../../src/interfaces/time-report-data";
 
 describe('calculateWage', () => {
   it('should calculate the wage to the job group A', () => {

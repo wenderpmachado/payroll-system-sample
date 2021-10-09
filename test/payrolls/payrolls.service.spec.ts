@@ -1,11 +1,11 @@
 import { ConflictException } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { IEmployeeReport, ITimeReportInfo } from 'src/interfaces/time-report-data';
+import { PayrollsRepository } from '../../src/payrolls/payrolls.repository';
+import { PayrollsService } from '../../src/payrolls/payrolls.service';
 import { payrollsRepositoryMock } from '../../test/__mocks/payrolls-repository.mock';
 import { timeReporNameMock } from '../../test/__mocks/time-report-name.mock';
 import { timeReportBufferMock, timeReportRowMock } from '../../test/__mocks/time-report.mock';
-import { PayrollsRepository } from './payrolls.repository';
-import { PayrollsService } from './payrolls.service';
 
 describe('PayrollsService', () => {
   let service: PayrollsService;
