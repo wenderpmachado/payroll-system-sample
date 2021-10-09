@@ -1,0 +1,54 @@
+name: "Continous Integration"
+
+on:
+  pull_request:
+    branches:
+      - "**"
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node: [15.x]
+        os: ["ubuntu-latest"]
+        # os: ["macos-latest", "ubuntu-latest", "windows-latest"]
+
+    # name: "node ${{ matrix.node }} / ${{ matrix.os }}"
+    steps:
+      - uses: actions/checkout@v2
+      - name: Get npm cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+      # See https://github.com/actions/cache/blob/master/examples.md#node---npm
+      - name: Cache node modules
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Setup Node.js v${{ matrix.node }} on ${{ matrix.os }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install dependencies
+        run: npm run install --frozen-lockfile
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Run tests
+        run: npm run test
+
+      - name: Jest Annotations & Coverage
+        uses: mattallty/jest-github-action@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          test-command: "npm run test"

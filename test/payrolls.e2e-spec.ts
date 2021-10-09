@@ -1,26 +1,31 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
-import { AppModule } from './../src/app.module';
-import { version } from '../package.json';
+import { PayrollsModule } from '../src/payrolls/payrolls.module';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
+  const prefix = '/payrolls'
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [AppModule],
+      imports: [PayrollsModule],
     }).compile();
 
     app = moduleFixture.createNestApplication();
     await app.init();
   });
 
-  it('/ (GET)', () => {
-    const helloWorldMessage = `API Version: ${version}`;
+  it(`${prefix}/upload (POST)`, () => {
     return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect(helloWorldMessage);
+      .post(`${prefix}/upload`)
+      .attach('file', './sample-files/time-report-42.csv')
+      .field('name', 'time-report-42.csv')
+      .expect(201)
+      .expect(true);
+  });
+
+  afterAll(async () => {
+    await app.close();
   });
 });

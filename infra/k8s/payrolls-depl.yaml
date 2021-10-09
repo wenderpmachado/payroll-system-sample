@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payrolls-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payrolls
+  template:
+    metadata:
+      labels:
+        app: payrolls
+    spec:
+      containers:
+        - name: payrolls
+          image: wenderpmachado/payrolls
+          imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payrolls-clusterip-srv
+spec:
+  selector:
+    app: payrolls
+  ports:
+    - name: payrolls
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
