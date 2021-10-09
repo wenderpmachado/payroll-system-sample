@@ -149,6 +149,10 @@ $ npm run test:cov
 
 ![Running test:cov](./.github/images/instanbul.jpg)
 
+## Test by Postman
+
+If you like Postman, I there is a file in `docs/payroll_system.postman_collection.json` for you :)
+
 ## Roadmap
 
 * [x] Add Swagger
