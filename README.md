@@ -147,7 +147,11 @@ $ npm run test:cov
 
 > Tip: you can see that report in `./coverage/lcov-report/index.html` file:
 
-![Running test:cov](./.github/images/instanbul.jpg)
+![Running test:cov - web view](./.github/images/instanbul.jpg)
+
+> Tip²: at every commit in a PR on GitHub, automated tests are run in order to detect if everything is ok
+
+![CI - GitHub Actions in Action](./.github/images/ci-github-actions.jpg)
 
 ## Test by Postman
 
@@ -157,6 +161,7 @@ If you like Postman, I there is a file in `docs/payroll_system.postman_collectio
 
 * [x] Add Swagger
 * [x] Add docker-compose
+* [x] Add GitHub Actions Jest configuration
 * [ ] Fix e2e tests
 * [ ] Deploy in somewhere
 * [ ] Add more tests to cover more possibilities
